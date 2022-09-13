@@ -1,22 +1,24 @@
-import React from 'react'
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-function NavigationBar() {
+import {Link} from 'react-router-dom'
+
+export default function NavigationBar() {
   return (
     <div>
-        <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Student Management System</Navbar.Brand>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+        <Link to="/" className='navbar-brand'>Student Management System</Link>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Add Student</Nav.Link>
-            <Nav.Link href="#features">View Student</Nav.Link>
-            <Nav.Link href="#pricing">About</Nav.Link>
+            <Link to="/student" className="nav-link">Add Student</Link>
+            <Link to="/listStudents" className="nav-link">View Students</Link>
           </Nav>
-        </Container>
-      </Navbar>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
     </div>
   )
 }
-
-export default NavigationBar
